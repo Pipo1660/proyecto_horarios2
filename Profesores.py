@@ -44,17 +44,17 @@ def botones_docentes(ventana3,menuFunc,tipoCuenta,nombreCuenta):
     imagen_profesor_añadir = ImageTk.PhotoImage(Image.open("imagenes/agregar_profesor.png").resize((20, 20)))
     imagen_eliminar =ImageTk.PhotoImage(Image.open("imagenes/eliminar.png").resize((20, 20), Image.LANCZOS))
 
-    tk.Label(ventana3,text="Materia y Profesores",bg="#c9daf8",font=("Monaco", 24, "bold")).grid(row=1,column=5,columnspan=2,padx=2,pady=2)
-    tk.Button(ventana3, text="Volver",image=imagen_volver,compound="left",height=30 , width=300, command=lambda: volver_al_menu(ventana3,menuFunc,tipoCuenta,nombreCuenta)).grid(row=8, column=5,columnspan=2 ,sticky="s")
-    tk.Button(ventana3, text="Ver profesores",image=imagen_profesor,compound="left",borderwidth=1,relief="solid",height=30 , width=300, command=lambda:ver_profes(("Id_profesor","Nombre", "Apellido", "Telefono", "Tipo_documento","Nro_de_documento", "Correo","Direccion","Altura","Departamento","Fecha_nacimiento"), ("""SELECT Id_profesor, Nombre, Apellido, Telefono, Tipo_documento,Nro_de_documento, Correo,Direccion,Altura,Departamento,Fecha_nacimiento FROM profesores ORDER BY Nombre ASC, Apellido ASC"""),(ventana3),1)).grid(row=4, column=5, padx=2, pady=2,sticky="w")
+    tk.Label(ventana3,text="   Materia y Profesores",bg="#c9daf8",font=("Monaco", 24, "bold")).grid(row=1,column=4,columnspan=2,padx=2,pady=2)
+    tk.Button(ventana3, text="Volver",image=imagen_volver,compound="left",height=30 , width=300, command=lambda: volver_al_menu(ventana3,menuFunc,tipoCuenta,nombreCuenta)).grid(row=6, column=4,columnspan=2 ,sticky="s")
+    tk.Button(ventana3, text="Ver profesores",image=imagen_profesor,compound="left",borderwidth=1,relief="solid",height=30 , width=300, command=lambda:ver_profes(("Id_profesor","Nombre", "Apellido", "Telefono", "Tipo_documento","Nro_de_documento", "Correo","Direccion","Altura","Departamento","Fecha_nacimiento"), ("""SELECT Id_profesor, Nombre, Apellido, Telefono, Tipo_documento,Nro_de_documento, Correo,Direccion,Altura,Departamento,Fecha_nacimiento FROM profesores ORDER BY Nombre ASC, Apellido ASC"""),(ventana3),1)).grid(row=3, column=3,columnspan=2, padx=2, pady=2,sticky="ew")
         
 
     añadir_profes=tk.Button(ventana3, text="Añadir profesores",image= imagen_profesor_añadir,compound="left",borderwidth=1,relief="solid",height=30 , width=300, command=lambda:agregar_profesores(( "Id_profesor","Nombre", "Apellido", "Telefono", "Tipo_documento","Nro_de_documento", "Correo","Direccion","Altura","Departamento","Fecha_nacimiento"), ("""SELECT Id_profesor,Nombre, Apellido, Telefono, Tipo_documento,Nro_de_documento, Correo,Direccion,Altura,Departamento,Fecha_nacimiento FROM profesores ORDER BY Nombre ASC, Apellido ASC"""),(ventana3)))
-    añadir_profes.grid(row=3, column=6, padx=2, pady=2,sticky="w")
-    tk.Button(ventana3, text="Ver materias",image=imagen_materia_ver,compound="left" ,borderwidth=1,relief="solid",height=30 , width=300,command=lambda:ver_aula(( "Materia","Cursos", "Grupo", "Especialidad"), """SELECT MATERIA, CURSOS, Grupo, Especialidad FROM materias ORDER BY MATERIA ASC"""),).grid(row=3, column=5, padx=2, pady=2,sticky="w")
+    añadir_profes.grid(row=3, column=5,columnspan=2, padx=2, pady=2,sticky="ew")
+    tk.Button(ventana3, text="Ver materias",image=imagen_materia_ver,compound="left" ,borderwidth=1,relief="solid",height=30 , width=300,command=lambda:ver_aula(( "Materia","Cursos", "Grupo", "Especialidad"), """SELECT MATERIA, CURSOS, Grupo, Especialidad FROM materias ORDER BY MATERIA ASC"""),).grid(row=2, column=3,columnspan=2, padx=2, pady=2,sticky="ew")
         
     añadir_materia_boton=tk.Button(ventana3, text="Añadir materias",image=imagen_materia_añadir,compound="left",borderwidth=1,relief="solid",height=30 , width=300, command=lambda:agregar_materias(( "Materia","Cursos", "Grupo", "Especialidad"), """SELECT MATERIA, CURSOS, Grupo, Especialidad FROM materias ORDER BY MATERIA ASC""",(ventana3)))
-    añadir_materia_boton.grid(row=4, column=6, padx=2, pady=2,sticky="w")
+    añadir_materia_boton.grid(row=2, column=5,columnspan=2, padx=2, pady=2,sticky="ew")
 
     if tipodecuenta==1:
         añadir_profes.configure(state="disabled")
