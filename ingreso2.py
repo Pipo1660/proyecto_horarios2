@@ -94,7 +94,10 @@ class ingreso1():
             Ccurso = str(Icurso)
             Cdivision = divisionInput.get()
             Cgrupo = grupoInput.get()
-            Ctelefono = TELEInput.get()
+            Cprefijo = c_a.get()
+            Ccodigo = TELEInput.get()
+            Ctelefono = entry_telefono2.get()
+            
 
             # --CHECKEO CAMPOS VACIOS--
             if Cnombre == '' or Capellido == '':
@@ -124,11 +127,10 @@ class ingreso1():
             fetchCursos=cursor.fetchall()
             
             if Cdni != DNIdefault and Cdni.isdigit() is True and len(Cdni) < 8:
-                ErrorLabel.config(text = "Ingrese un DNI válido (8 números).", bg=BGcolor)
+                ErrorLabel.config(text = "Ingrese un Documento válido (8 números).", bg=BGcolor)
                 tk.bell()
             else:
                 for curso in fetchCursos:
-                    cursor.reset()
                     cursor.execute(f"SELECT CURSO FROM alumnos WHERE nro_de_documento = '{Cdni}'")
                     fetchDNI=cursor.fetchone()
                     
@@ -136,7 +138,7 @@ class ingreso1():
                         #fetchDNI = fetchDNI.split("_")
                         #fetchDNI[1] = fetchDNI[1].upper()
                         #fetchDNI
-                        ErrorLabel.config(text = f"El Dni ingresado ya se encuentra a nombre de un alumno en {fetchDNI}")
+                        ErrorLabel.config(text = f"El Documento ingresado ya se encuentra a nombre de un alumno en {fetchDNI}")
                         tk.bell()
                         Repetido=True
                         break
@@ -185,9 +187,8 @@ class ingreso1():
                         
                 
                 #Codigo que se encarga de Insertar o Actualizar la base de datos
-                cursor.reset()
                 if valores[0]==True:
-                    cursor.execute("UPDATE alumnos SET NOMBRE=%s,APELLIDO=%s,GRUPO=%s,NACIMIENTO=%s,TELEFONO=%s,nro_de_documento=%s,CURSO=%s WHERE ID=%s",(Cnombre, Capellido, Cgrupo, Cfecha, Ctelefono, Cdni, SQLcurso, valores[9]))
+                    cursor.execute("UPDATE alumnos SET NOMBRE=%s,APELLIDO=%s,GRUPO=%s,NACIMIENTO=%s,PREFIJO=%s,CODIGO=%s,TELEFONO=%s,nro_de_documento=%s,CURSO=%s WHERE ID=%s",(Cnombre, Capellido, Cgrupo, Cfecha, Cprefijo, Ccodigo, Ctelefono, Cdni, SQLcurso, valores[9]))
                     print(f"Alumno {Cnombre} Actualizado Exitosamente")
                     ErrorLabel.config(text = "", bg=BGcolor)
                     if SQLcurso.lower() != str(valores[3]+"_"+valores[4]).lower():
@@ -195,7 +196,7 @@ class ingreso1():
                     volver()
                     return
                 else:
-                    cursor.execute("INSERT INTO alumnos (NOMBRE,APELLIDO,GRUPO,NACIMIENTO,TELEFONO,nro_de_documento,CURSO) VALUES (%s,%s,%s,%s,%s,%s,%s)",(Cnombre, Capellido, Cgrupo, Cfecha, Ctelefono, Cdni, SQLcurso))
+                    cursor.execute("INSERT INTO alumnos (NOMBRE,APELLIDO,GRUPO,NACIMIENTO,PREFIJO,CODIGO,TELEFONO,nro_de_documento,CURSO) VALUES (%s,%s,%s,%s,%s,%s,%s)",(Cnombre, Capellido, Cgrupo, Cfecha, Cprefijo, Ccodigo, Ctelefono, Cdni, SQLcurso))
                     print(f"Alumno {Cnombre} Cargado Exitosamente")
                     ErrorLabel.config(text = f"Alumno {Cnombre} Cargado Exitosamente", bg=BGcolor)
                     return
@@ -242,8 +243,7 @@ class ingreso1():
         def limite(event):
             contenido = NombreInput.get()
             contenido2 = ApellidoInput.get()
-            #contenido3 = entry_telefono2.get()
-            contenido3 = TELEInput.get()
+            contenido3 = entry_telefono2.get()
             contenido4 = DNIInput.get()
             
             if len(contenido) > 30:
@@ -261,19 +261,22 @@ class ingreso1():
             elif len(contenido3) > 11:
                 # Limitar el contenido a 11 caracteres
                 nuevo_contenido3 = contenido3[:11]
-                #entry_telefono2.delete(0, END)
-                #entry_telefono2.insert(0, nuevo_contenido3)
-                TELEInput.delete(0, END)
-                TELEInput.insert(0, nuevo_contenido3)
-                messagebox.showerror("Error", "Solo se permiten 11 caracteres")
-            elif len(contenido4) > 8: #10:
+                #nuevo_contenido3 = contenido3[:10]
+                entry_telefono2.delete(0, END)
+                entry_telefono2.insert(0, nuevo_contenido3)
+                messagebox.showerror("Error", "Solo se permiten 10 caracteres")
+                #messagebox.showerror("Error", "Solo se permiten 11 caracteres")
+            elif len(contenido4) > 8:
+            #elif len(contenido4) > 10:
                 # Limitar el contenido a 11 caracteres
-                nuevo_contenido4 = contenido4[:8] #[:10]
+                nuevo_contenido4 = contenido4[:8]
+                #nuevo_contenido4 = contenido4[:10]
                 DNIInput.delete(0, END)
                 DNIInput.insert(0, nuevo_contenido4)
                 messagebox.showerror("Error", "Solo se permiten 8 caracteres")
+                #messagebox.showerror("Error", "Solo se permiten 10 caracteres")
         def validar_prefijo(event, entry_widget,tk):
-            #TELEInput.hide_listbox(tk)
+            TELEInput.hide_listbox(tk)
             widget_con_enfoque =TELEInput.focus_get()
             if isinstance(widget_con_enfoque, Listbox):
                 return
@@ -285,15 +288,15 @@ class ingreso1():
                     entry_widget.delete(0, END)
                     entry_widget.focus()
         BG2 = Frame(tk, bg=BG2color,width=512,height=32)
-        BG1 = Frame(tk, bg=BG1color,width=80,height=256)
-        BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
+        #BG1 = Frame(tk, bg=BG1color,width=80,height=256)
+        #BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
         BG2.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=1.0, relheight=0.07)
 
-        etiqueta_derecha = Label(BG2, text="©5to1ra Grupo A - 2023", bg=BG2color,font=("Helvetica", 16))
+        etiqueta_derecha = Label(BG2, text="©5to1ra & 5to3ra - 2023", bg=BG2color,font=("Helvetica", 16))
         etiqueta_derecha.place(relx = 1.0, rely = 0.5, anchor ='e')
 
         etiqueta_izquierda = Label(BG2, text="", bg=BG2color,font=("Helvetica", 16))
-        etiqueta_izquierda.place(relx = 0.1, rely = 0.5, anchor ='w')
+        etiqueta_izquierda.place(relx = 0.0, rely = 0.5, anchor ='w')
 
         subfix = " > Alumnos > Ingreso"
         if tipoCuenta==1:
@@ -398,39 +401,36 @@ class ingreso1():
             for linea in archivo:
                 numero = linea.strip()
                 prefijos.append(numero)
-        #TELEInput = AutocompleteEntry(prefijos,tk)
-        TELEInput = ttk.Entry(tk, validate="key")
-        TELEInput.config(width=25)
+        TELEInput = AutocompleteEntry(prefijos,tk)
+        #TELEInput.config(width=4)
         #TELEInput.bind("<FocusOut>", lambda event: validar_prefijo(event, TELEInput,tk))
-        TELEInput.config(validatecommand=(tk.register(validar_numeros), "%P"))
-        TELEInput.bind("<KeyRelease>", limite)
         
         entry_telefono2 = ttk.Entry(tk, validate="key")
-        #entry_telefono2.config(validatecommand=(tk.register(validar_numeros), "%P"))
-        #entry_telefono2.bind("<KeyRelease>", limite)
+        entry_telefono2.config(validatecommand=(tk.register(validar_numeros), "%P"))
+        entry_telefono2.bind("<KeyRelease>", limite)
+        entry_telefono2.place(relx = 0.2, rely = 0.65, anchor ='sw', relwidth=0.12)
         #entry_telefono2.place(relx = 0.32, rely = 0.65, anchor ='sw', relwidth=0.12)
         
 
         TELELabel = Label(tk, text="Introduzca el Telefono de un Tutor",font=("arial", 8), bg=BGcolor)
         TELELabel.place(relx = 0.2, rely = 0.6, anchor ='sw')
         #TELEInput.place(relx = 0.26, rely = 0.65, anchor ='sw', relwidth=0.05)
-        TELEInput.place(relx = 0.2, rely = 0.65, anchor ='sw')
 
         #ttk.Label(tk, text="Numero de telefono",font=("arial", 8)).place(relx = 0.32, rely = 0.655, anchor ='nw', relwidth=0.15)
         #ttk.Label(tk, text="Codigo de area:",font=("arial", 8)).place(relx = 0.26, rely = 0.655, anchor ='nw', relwidth=0.05)
         #ttk.Label(tk, text="Prefijos:",font=("arial", 8)).place(relx = 0.2, rely = 0.655, anchor ='nw', relwidth=0.05)
 
 
-        DNILabel = Label(tk, text="Introduce el DNI del Alumno",font=("arial", 8), bg=BGcolor)
+        DNILabel = Label(tk, text="Introdusca el Documento del Alumno",font=("arial", 8), bg=BGcolor)
         DNIInput = Entry(tk, width=25)
         DNIInput.config(validate="key",validatecommand=(tk.register(validar_numeros), "%P"))
         DNIInput.bind("<KeyRelease>", limite)
         DNILabel.place(relx = 0.66, rely = 0.1, anchor ='sw')
-        DNIInput.place(relx = 0.66, rely = 0.15, anchor ='sw')
+        DNIInput.place(relx = 0.66, rely = 0.15, anchor ='sw', relwidth=0.06)
 
         opciones_documento =  ["DU","DNI","Libreta de enrolamiento", "Libreta civica", "Pasaporte", "Cedula de identidad"]
         division = ttk.Combobox(tk,  values=opciones_documento, state="readonly")
-        #division.place(relx = 0.66, rely = 0.7, anchor ='sw')
+        #division.place(relx = 0.725, rely = 0.15, anchor ='sw', relwidth=0.15)
         def focus(event, entry, textoDefault):
             event = str(event)
             print(event)
@@ -475,12 +475,15 @@ class ingreso1():
             NombreInput.insert(0,valores[1])
             ApellidoInput.insert(0,valores[2])
 
+            print(valores)
+
             cursoInput.current(cursos.index(valores[3]))
             on_course_selected()
             divisionInput.current(divisionInput["values"].index(valores[4]))
             grupoInput.current(grupoInput["values"].index(valores[5]))
             TELEInput.insert(0,valores[6])
-            DNIInput.insert(0,valores[7])
+            entry_telefono2.insert(0,valores[7])
+            DNIInput.insert(0,valores[8])
             FechaCalendario.selection_set(valores[8])
             focus('<<CalendarSelected>>',FechaInput,Fechadefault)
             tk.focus() #deseleccionar todos los widgets (arreglo de un bug)

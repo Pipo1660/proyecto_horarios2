@@ -175,7 +175,7 @@ class inasistencias1():
         #BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
         BG2.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=1.0, relheight=0.07)
 
-        etiqueta_derecha = Label(BG2, text="©5to1ra Grupo A - 2023", bg=BG2color,font=("Helvetica", 16))
+        etiqueta_derecha = Label(BG2, text="©5to1ra & 5to3ra - 2023", bg=BG2color,font=("Helvetica", 16))
         etiqueta_derecha.place(relx = 1.0, rely = 0.5, anchor ='e')
 
         etiqueta_izquierda = Label(BG2, text="", bg=BG2color,font=("Helvetica", 16))
@@ -259,10 +259,10 @@ class inasistencias1():
                 BotonCancelar = Button(FrameEditar, text="Cancelar", command=lambda:Terminar())
                 BotonCancelar.grid(row=1,column=6,columnspan=1,padx=(32,0), pady=2,sticky="news")
                 
-                filaSeleccion = lista.selection()
-                listaSeleccion = lista.item(filaSeleccion)
-                seleccion = listaSeleccion['values']
                 if nuevo==False:
+                    filaSeleccion = lista.selection()
+                    listaSeleccion = lista.item(filaSeleccion)
+                    seleccion = listaSeleccion['values']
                     print(seleccion)
                     EntryFecha.insert(0,seleccion[0])
                     ComboboxTipo.current(listaSeleccion['tags'][1])
@@ -313,7 +313,7 @@ class inasistencias1():
                 def Confirmar():
                     SQLcurso = str((ultimoCurso[1]+"_"+ultimoCurso[0]["text"]).lower())
                     print(SQLcurso)
-                    print(listaSeleccion['tags'])
+                    #print(listaSeleccion['tags'])
                     
                     falta = ComboboxTipo.current()
                     

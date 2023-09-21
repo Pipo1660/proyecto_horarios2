@@ -31,71 +31,70 @@ LS2color="#F2D7D5" #rojo muy clarito
 
 
 
-cursos = [ #Estructura: [ {AÑO}, {DIVISION}, "", {MATERIAS} ] -- Materias deben ser separadas con ";"
-    ["1ro", "A", "", "Matemáticas;Literatura;Programación"],
-    ["1ro", "B", "", "Matemáticas;Literatura;Programación"],
-    ["1ro", "C", "", "Matemáticas;Literatura;Programación"],
-    ["1ro", "D", "", "Matemáticas;Literatura;Programación"],
-    ["1ro", "E", "", "Matemáticas;Literatura;Programación;ect;ect;ect;ect;ect;ect;ect;ect;ect;ect;ect;ect"],
-    ["2do", "A", "", "Historia;Geografía;Inglés"],
-    ["2do", "B", "", "Historia;Geografía;Inglés"],
-    ["2do", "C", "", "Historia;Geografía;Inglés"],
-    ["2do", "D", "", "Historia;Geografía;Inglés"],
-    ["3ro", "A", "", "Historia;Literatura;Ciudadania"],
-    ["3ro", "B", "", "Historia;Literatura;Ciudadania"],
-    ["3ro", "C", "", "Historia;Literatura;Ciudadania"],
-    ["3ro", "D", "", "Historia;Literatura;Ciudadania"],
-    ["4to", "1ra", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
-    ["4to", "2da", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
-    ["4to", "3ra", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
-    ["4to", "4ta", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
-    ["4to", "5ta", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
-    ["4to", "6ta", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
-    ["5to", "1ra", "", "Hardware;Programacion;TeleInformatica"],
-    ["5to", "2da", "", "Hardware;Programacion;TeleInformatica"],
-    ["5to", "3ra", "", "Hardware;Programacion;TeleInformatica"],
-    ["5to", "4ta", "", "Hardware;Programacion;TeleInformatica"],
-    ["5to", "5ta", "", "Hardware;Programacion;TeleInformatica"],
-    ["6to", "1ra", "", "Programacion;Analisis Matematico;Artistica"],
-    ["6to", "2da", "", "Programacion;Analisis Matematico;Artistica"],
-    ["6to", "3ra", "", "Programacion;Analisis Matematico;Artistica"],
-    ["6to", "4ta", "", "Programacion;Analisis Matematico;Artistica"],
-    ["6to", "5ta", "", "Programacion;Analisis Matematico;Artistica"],
-    ["7mo", "1ra", "", "Pasantias;Programacion;Hardware"],
-    #["7mo", "2da", "", "Pasantias;Programacion;Hardware"],
-    ["7mo", "3ra", "", "Pasantias;Programacion;Hardware"],
-    ["7mo", "4ta", "", "Pasantias;Programacion;Hardware"]
-]
+#cursos = [ #Estructura: [ {AÑO}, {DIVISION}, "", {MATERIAS} ] -- Materias deben ser separadas con ";"
+#    ["1ro", "A", "", "Matemáticas;Literatura;Programación"],
+#    ["1ro", "B", "", "Matemáticas;Literatura;Programación"],
+#    ["1ro", "C", "", "Matemáticas;Literatura;Programación"],
+#    ["1ro", "D", "", "Matemáticas;Literatura;Programación"],
+#    ["1ro", "E", "", "Matemáticas;Literatura;Programación;ect;ect;ect;ect;ect;ect;ect;ect;ect;ect;ect;ect"],
+#    ["2do", "A", "", "Historia;Geografía;Inglés"],
+#    ["2do", "B", "", "Historia;Geografía;Inglés"],
+#    ["2do", "C", "", "Historia;Geografía;Inglés"],
+#    ["2do", "D", "", "Historia;Geografía;Inglés"],
+#    ["3ro", "A", "", "Historia;Literatura;Ciudadania"],
+#    ["3ro", "B", "", "Historia;Literatura;Ciudadania"],
+#    ["3ro", "C", "", "Historia;Literatura;Ciudadania"],
+#    ["3ro", "D", "", "Historia;Literatura;Ciudadania"],
+#    ["4to", "1ra", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
+#    ["4to", "2da", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
+#    ["4to", "3ra", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
+#    ["4to", "4ta", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
+#    ["4to", "5ta", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
+#    ["4to", "6ta", "", "Hardware;Salud y Adolescencia;Sistemas Operativos"],
+#    ["5to", "1ra", "", "Hardware;Programacion;TeleInformatica"],
+#    ["5to", "2da", "", "Hardware;Programacion;TeleInformatica"],
+#    ["5to", "3ra", "", "Hardware;Programacion;TeleInformatica"],
+#    ["5to", "4ta", "", "Hardware;Programacion;TeleInformatica"],
+#    ["5to", "5ta", "", "Hardware;Programacion;TeleInformatica"],
+#    ["6to", "1ra", "", "Programacion;Analisis Matematico;Artistica"],
+#    ["6to", "2da", "", "Programacion;Analisis Matematico;Artistica"],
+#    ["6to", "3ra", "", "Programacion;Analisis Matematico;Artistica"],
+#    ["6to", "4ta", "", "Programacion;Analisis Matematico;Artistica"],
+#    ["6to", "5ta", "", "Programacion;Analisis Matematico;Artistica"],
+#    ["7mo", "1ra", "", "Pasantias;Programacion;Hardware"],
+#    ["7mo", "3ra", "", "Pasantias;Programacion;Hardware"],
+#    ["7mo", "4ta", "", "Pasantias;Programacion;Hardware"]
+#]
 
 #Materias de ejemplo para probar el sistema
-materiasEjemplo = [ #estructura: [ {Nombre Materia}, {Cursos Asignados} ]
-    ["Matematicas","1ro_A;1ro_B;1ro_C;1ro_D;1ro_E"],
-    ["Literatura","1ro_A;1ro_B;1ro_C;1ro_D;1ro_E"],
-    ["Historia","1ro_A;1ro_B;1ro_C;1ro_D;1ro_E"],
+#materiasEjemplo = [ #estructura: [ {Nombre Materia}, {Cursos Asignados} ]
+#    ["Matematicas","1ro_A;1ro_B;1ro_C;1ro_D;1ro_E"],
+#    ["Literatura","1ro_A;1ro_B;1ro_C;1ro_D;1ro_E"],
+#    ["Historia","1ro_A;1ro_B;1ro_C;1ro_D;1ro_E"],
 
-    ["Sistemas Operativos","5to_1ra;5to_2da;5to_3ra"],
-    ["Tele Informatica","5to_1ra;5to_2da;5to_3ra"],
+#    ["Sistemas Operativos","5to_1ra;5to_2da;5to_3ra"],
+#    ["Tele Informatica","5to_1ra;5to_2da;5to_3ra"],
+#
+#    ["Programacion","5to_2da"],
+#    ["Base de datos","5to_2da"],
+#
+#    ["Hardware","5to_1ra;5to_3ra"],
+#    ["Electronica","5to_1ra;5to_3ra"],
+#
+#    ["Dibujo Tecnico","5to_4ta;5to_5ta"],
+#]
 
-    ["Programacion","5to_2da"],
-    ["Base de datos","5to_2da"],
+#maestrias = [ #estructura: [ {ID Predefinida}, {Nombre Maestria} ]
+#    (0,"Ninguna"), #En el caso de materias de ciclo basico o materias compartidas entre maestrias
+#    (1,"Programacion"),
+#    (2,"Informatica"),
+#    (3,"Maestro Mayor de Obras"),
+#]
 
-    ["Hardware","5to_1ra;5to_3ra"],
-    ["Electronica","5to_1ra;5to_3ra"],
-
-    ["Dibujo Tecnico","5to_4ta;5to_5ta"],
-]
-
-maestrias = [ #estructura: [ {ID Predefinida}, {Nombre Maestria} ]
-    (0,"Ninguna"), #En el caso de materias de ciclo basico o materias compartidas entre maestrias
-    (1,"Programacion"),
-    (2,"Informatica"),
-    (3,"Maestro Mayor de Obras"),
-]
-
-for curso in cursos:
-    curso[2] = curso[0]+"_"+curso[1] #crear variable curso juntando año y division
-    curso[2] = curso[2].lower() #se asegura que el curso sea minuscula
-    curso[3] = curso[3].replace(" ","_") #reemplazar espacios con "_"
+#for curso in cursos:
+#    curso[2] = curso[0]+"_"+curso[1] #crear variable curso juntando año y division
+#    curso[2] = curso[2].lower() #se asegura que el curso sea minuscula
+#    curso[3] = curso[3].replace(" ","_") #reemplazar espacios con "_"
 
 
 
@@ -143,10 +142,10 @@ class boletines1():
         #               MATERIAS mediumtext
         #               );""")
         
-        for materiaEj in materiasEjemplo:
-            materiaEj[1] = materiaEj[1].lower()
-            cursor.execute("INSERT IGNORE INTO materias(MATERIA,CURSOS) VALUES (%s,%s)",materiaEj)
-
+        #for materiaEj in materiasEjemplo:
+        #    materiaEj[1] = materiaEj[1].lower()
+        #    cursor.execute("INSERT IGNORE INTO materias(MATERIA,CURSOS) VALUES (%s,%s)",materiaEj)
+        #
             #con maestrias:
             #cursor.execute("INSERT IGNORE INTO materias(MATERIA,CURSOS,ID_MAESTRIA) VALUES (%s,%s,%s)",materiaEj)
 
@@ -169,7 +168,7 @@ class boletines1():
                         NOTA_FEBRE DOUBLE(4,2),
                         NOTA_MARZO DOUBLE(4,2),
                         NOTA_FINAL DOUBLE(4,2),
-                        FOREIGN KEY (ID) REFERENCES alumnos(ID),
+                        FOREIGN KEY (ID) REFERENCES alumnos(ID) ON DELETE CASCADE,
                         FOREIGN KEY (CURSO) REFERENCES cursos(CURSO)
                         );""")
         print("----------------")
@@ -392,7 +391,7 @@ class boletines1():
         #BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
         BG2.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=1.0, relheight=0.07)
 
-        etiqueta_derecha = Label(BG2, text="©5to1ra Grupo A - 2023", bg=BG2color,font=("Helvetica", 16))
+        etiqueta_derecha = Label(BG2, text="©5to1ra & 5to3ra - 2023", bg=BG2color,font=("Helvetica", 16))
         etiqueta_derecha.place(relx = 1.0, rely = 0.5, anchor ='e')
 
         etiqueta_izquierda = Label(BG2, text="", bg=BG2color,font=("Helvetica", 16))
@@ -562,7 +561,7 @@ class boletines1():
 
                     if tipoCuenta==1:
                         materia2=ComboboxAlumno["values"][ComboboxAlumno.current()]
-                        #cursor.execute(f"UPDATE boletines__{materia2} SET NOTA1={}, NOTA2={}, NOTA_DICIE={}, NOTA_FEBRE={}, NOTA_MARZO={}, NOTA_FINAL={} WHERE ID={listaSeleccion['tags'][1]} AND CURSO='{SQLcurso}' ;".format(valores))
+                        cursor.execute(f"UPDATE boletines__{ComboboxAlumno.get()} SET NOTA1={v[0]}, NOTA2={v[1]}, NOTA_DICIE={v[2]}, NOTA_FEBRE={v[3]}, NOTA_MARZO={v[4]}, NOTA_FINAL={v[5]} WHERE ID={listaSeleccion['tags'][1]} ;")
                     else:
                         cursor.execute(f"UPDATE boletines__{seleccion[0]} SET NOTA1={v[0]}, NOTA2={v[1]}, NOTA_DICIE={v[2]}, NOTA_FEBRE={v[3]}, NOTA_MARZO={v[4]}, NOTA_FINAL={v[5]} WHERE ID={listaSeleccion['tags'][1]} AND CURSO='{SQLcurso}' ;")
                     Terminar()
@@ -600,40 +599,46 @@ class boletines1():
             materias = cursor.fetchall()
             materias1 = list(materias)
 
-            #obtiene la lista de materias de la tabla de cursos
-            #cursor.execute(f"SELECT MATERIAS FROM cursos WHERE CURSO='{SQLcurso}' ")
-            #materias1 = cursor.fetchone()
-
             if tipoCuenta==1: # si la cuenta es maestro
 
                 #Obtiene la lista de materias del profesor
                 cursor.execute(f"SELECT MATERIAS FROM usuarios WHERE usuario='{nombreCuenta}' AND tipo={tipoCuenta} ")
                 materias2 = cursor.fetchall()
 
-                if materias1 == [] or materias2 == []: #en el caso que no se encontraron materias antes
+                if materias1 == [] or materias1[0][0] == None or materias2 == [] or materias2[0][0] == None: #en el caso que no se encontraron materias antes
                     print("ERROR: no se encontraron materias en "+SQLcurso)
-                    alumnos = [noMaterias]
+                    materiasAdmitidas = [noMaterias]
 
                 else:
-                    materiasCursoActual = []
-                    materiasAdmitidas = []
-                    for x in materias2[0].split(";"):
-                        x = x.split(",")
-                        if str(x[1]+"_"+x[2]).lower() == SQLcurso.lower():
-                            print(x)
-                            materiasCursoActual.append(x[0])
-                    for i in materiasCursoActual:
-                        if i in materias1[0].split(";"):
-                            materiasAdmitidas.append(i)
+                    materias3 = []
+                    print("=-=-=__===_0-__==_=")
+                    print(materias1)
+                    print(materias2)
+                    for i in range(0,len(materias1)):
+                        materias1[i] = materias1[i][0].lower()
+                    print(materias1)
+
+                    for i in materias2[0][0].split(";"):
+                        i = i.split(",")
+                        if i[0].lower() in materias1:
+                            print(i)
+                            materias3.append(i)
+
+                    print(materias3)
                     
-                    if len(materiasAdmitidas)<=0:
+                    if len(materias3)<=0:
                         print("ERROR: no se encontraron materias en "+SQLcurso)
                         alumnos = [noMaterias]
                         materiasAdmitidas = [noMaterias]
+                    else:
+                        materiasAdmitidas = []
+                        
+                        for i in materias3:
+                            if i[1].lower()==SQLcurso.lower():
+                                materiasAdmitidas.append(i[0])
 
                     print(materias1)
                     print(materias2)
-                    print(materiasCursoActual)
                     print(materiasAdmitidas)
                             
                         
@@ -679,43 +684,51 @@ class boletines1():
             #solo en el caso de que se encuentren alumnos (admin/prece) o materias (profe)
             if alumnos != [noAlumnos] and alumnos != [noMaterias]: 
 
-                if tipoCuenta==1: #en el caso de ser cuenta de profesor
+                if tipoCuenta==1: # en el caso de ser maestro
 
-                    SQLmateria = ComboboxAlumno["values"][ComboboxAlumno.current()]
-                    for alumno in alumnos1:
-                        cursor.execute(f"INSERT IGNORE INTO {SQLcurso}__{SQLmateria}(ID,NOMBRE,APELLIDO,GRUPO) VALUES('{alumno[0]}','{alumno[1]}','{alumno[2]}','{alumno[3]}')")
+                    for DBalumno in alumnos1:
+                        #ID, nombre, apellido, grupo
+                        print("a")
+                        cursor.reset()
 
-                    cursor.execute(f"SELECT ID, NOMBRE, APELLIDO, GRUPO, NOTA1, NOTA2, NOTA_DICIE, NOTA_FEBRE, NOTA_MARZO, NOTA_FINAL FROM {SQLcurso}__{SQLmateria} ")
-                    INalumno = cursor.fetchall()
-                    print(INalumno)
+                        #Crear Row para notas del alumno si no existe
+                        cursor.execute(f"INSERT IGNORE INTO boletines__{ComboboxAlumno.get()}(ID,CURSO) VALUES('{DBalumno[0]}','{SQLcurso}') ")
 
-                    incompleto = False
+                        #Obtener Notas del Alumno
+                        cursor.execute(f"SELECT NOTA1, NOTA2, NOTA3, NOTA_DICIE, NOTA_FEBRE, NOTA_MARZO, NOTA_FINAL FROM boletines__{ComboboxAlumno.get()} WHERE ID='{DBalumno[0]}' ")
+                        notas = cursor.fetchone()
 
-                    for alumno1 in INalumno:
-                        alumno1 = list(alumno1)
-                        for i in range(len(alumno1)):
-                            if alumno1[i]=="":
-                                alumno1[i] = None
+                        print(notas)
+                        print("abcd")
 
-                        if all(alumno1 is None for alumno1 in alumno1)==True:
+                        cursor.reset()
+
+                        incompleto = False
+                        notas = list(notas)
+
+                        for i in range(len(notas)):
+                            if notas[i]=="":
+                                notas[i] = None
+
+                        if all(notas is None for notas in notas)==True:
                             incompleto = True
                             promedio = ""
-                        elif alumno1[4] is None or alumno1[5] is None:
+                        elif notas[0] is None or notas[1] is None:
                             promedio = ""
                         else:
-                            promedio = (int(alumno1[4])+int(alumno1[5]))/2
+                            promedio = (int(notas[0])+int(notas[1]))/2
 
-                        for i in range(len(alumno1)):
-                            if alumno1[i] is None:
-                                alumno1[i] = ""
+                        for i in range(len(notas)):
+                            if notas[i] is None:
+                                notas[i] = ""
 
-                        valoresInsert=[str(alumno1[1]+" "+alumno1[2]),alumno1[4],alumno1[5],"",promedio,alumno1[6],alumno1[7],alumno1[8],alumno1[9]]
-                        print(valoresInsert)
+                        valoresInsert=[str(DBalumno[1]+" "+DBalumno[2]),notas[0],notas[1],promedio,notas[3],notas[4],notas[5],notas[6]]
                         for valor in valoresInsert:
                             if valor is None:
                                 valoresInsert[valoresInsert.index(valor)] = ""
 
-                        lista.insert('',END,values=valoresInsert, tags=(str(incompleto),alumno[0]))
+                                
+                        lista.insert('',END,values=valoresInsert, tags=(str(incompleto),DBalumno[0]))
                         print(str("incompleto = "+str(incompleto)))
 
                 else: # en el caso de ser preceptor o administrador

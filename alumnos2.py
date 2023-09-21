@@ -99,7 +99,7 @@ class alumnos1:
             if len(seleccionados)<=0:
                 messagebox.showinfo(message="No se ha seleccionado\nningun alumno", title="Error")
             else:
-                opcion = messagebox.askyesno(message="esta usted seguro?\nse eliminaran "+str(len(seleccionados))+" alumnos", title="Advertencia",icon='warning')
+                opcion = messagebox.askyesno(message="esta usted seguro?\nse eliminaran "+str(len(seleccionados))+" alumnos\nADVERTENCIA: esta accion es irreversible", title="Advertencia",icon='warning')
                 if opcion==True:
                     for delID in sqlIDs:
                         print(delID)
@@ -167,15 +167,12 @@ class alumnos1:
 
         if tipoCuenta == 1: #botones Maestro
             BotonAlumno['state'] = DISABLED
-            BotonEditar['state'] = DISABLED
             BotonEliminar['state'] = DISABLED
         elif tipoCuenta == 2: #botones Preceptor
             BotonAlumno['state'] = DISABLED
-            BotonEditar['state'] = DISABLED
             BotonEliminar['state'] = DISABLED
         elif tipoCuenta == 3: #botones Administrador
             BotonAlumno['state'] = NORMAL
-            BotonEditar['state'] = NORMAL
             BotonEliminar['state'] = NORMAL
 
 
@@ -215,7 +212,7 @@ class alumnos1:
         #BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
         BG2.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=1.0, relheight=0.07)
 
-        etiqueta_derecha = Label(BG2, text="©5to1ra Grupo A - 2023", bg=BG2color,font=("Helvetica", 16))
+        etiqueta_derecha = Label(BG2, text="©5to1ra & 5to3ra - 2023", bg=BG2color,font=("Helvetica", 16))
         etiqueta_derecha.place(relx = 1.0, rely = 0.5, anchor ='e')
 
         etiqueta_izquierda = Label(BG2, text="", bg=BG2color,font=("Helvetica", 16))
@@ -258,19 +255,25 @@ class alumnos1:
             #print(SQLmaterias)
             lista.delete(*lista.get_children()) #Limpiar lista antes de insertar nuevos elementos
 
-            cursor.execute(f"SELECT NOMBRE, APELLIDO, GRUPO, NACIMIENTO, TELEFONO, nro_de_documento, ID FROM alumnos WHERE CURSO='{SQLcurso}' ")
+            cursor.execute(f"SELECT NOMBRE, APELLIDO, GRUPO, NACIMIENTO, PREFIJO, CODIGO, TELEFONO, nro_de_documento, ID FROM alumnos WHERE CURSO='{SQLcurso}' ")
             alumnos = cursor.fetchall()
 
             for alumno in alumnos:
                 print(alumno)
-                tagID = alumno[6]
+                tagID = alumno[8]
                 alumno = list(alumno)
-                alumno.pop(6)
+                alumno.pop(8)
                 if alumno[2] is None:
                     alumno[2]="Ninguno"
                 for i in alumno:
                     if i is None:
                         alumno[alumno.index(i)] = ""
+                #alumno[4] = " ".join([alumno[4],alumno[5],alumno[6]])
+                alumno.pop(6)
+                alumno.pop(5)
+                
+                print(alumno)
+                
                 lista.insert('',END,values=alumno,tags=(tagID))
 
 

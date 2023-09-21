@@ -207,15 +207,15 @@ class registrar1():
         # canvas_abajo = tk.Canvas(ventana, bg=BLUE, width=512, height=32)  # Height es la altura de la barra azul
         # canvas_abajo.place(relx=0.0, rely=1.0, anchor='sw', relwidth=1.0, relheight=0.07)  # "ew" para que la barra se expanda horizontalmente
         BG2 = tk.Frame(ventana, bg=BG2color,width=512,height=32)
-        BG1 = tk.Frame(ventana, bg=BG1color,width=80,height=256)
-        BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
+        #BG1 = tk.Frame(ventana, bg=BG1color,width=80,height=256)
+        #BG1.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=0.1, relheight=1.0)
         BG2.place(relx = 0.0, rely = 1.0, anchor ='sw', relwidth=1.0, relheight=0.07)
 
-        etiqueta_derecha = tk.Label(BG2, text="©5to1ra Grupo A - 2023", bg=BG2color,font=("Helvetica", 16))
+        etiqueta_derecha = tk.Label(BG2, text="©5to1ra & 5to3ra - 2023", bg=BG2color,font=("Helvetica", 16))
         etiqueta_derecha.place(relx = 1.0, rely = 0.5, anchor ='e')
 
         etiqueta_izquierda = tk.Label(BG2, text="", bg=BG2color,font=("Helvetica", 16))
-        etiqueta_izquierda.place(relx = 0.1, rely = 0.5, anchor ='w')
+        etiqueta_izquierda.place(relx = 0.0, rely = 0.5, anchor ='w')
 
         subfix = " > Cuentas > Registro"
         if tipoCuenta==1:
@@ -309,8 +309,8 @@ class registrar1():
         print(seleccionM)
 
             
-        def CambioTipoCuenta():
-            if entry_tipo.current()==0: #rehabilitar seleccion de materias si tipo es maestro
+        def CambioTipoCuenta(forzar=False):
+            if entry_tipo.current()==0 and forzar is not True: #rehabilitar seleccion de materias si tipo es maestro
                 divisionInput.config(state='normal')
                 cursoInput.config(state='normal')
                 divisionInput.current(0)
@@ -374,13 +374,14 @@ class registrar1():
         def actualizarMaterias():
             curso=cursoInput.get()
             division=divisionInput.get()
-            cursor.execute(f"SELECT MATERIA FROM materias WHERE CURSOS LIKE '%1ro_A%' ")
+            cursor.execute(f"SELECT MATERIA FROM materias WHERE CURSOS LIKE '%{curso}_{division}%' ")
             listaMaterias = cursor.fetchall()
             
             for elemento in Frame3.winfo_children(): #borra lista de materias anterior
                 elemento.destroy()
                 
             for i in range(0,len(listaMaterias)):
+                listaMaterias[i] = str(listaMaterias[i][0])
                 listaMaterias[i] = listaMaterias[i].replace("_"," ") #.split(";")
                 materia = listaMaterias[i].replace(" ","_")
                 if (materia,str(curso+"_"+division)) in seleccionM:
@@ -410,7 +411,7 @@ class registrar1():
                     ScrollBar.config(command=None)
                     Canvas1.unbind_all("<MouseWheel>")
             else:
-                print("remover Scrollbar")
+                print("no es maestro")
                 ScrollBar.pack_forget()
                 ScrollBar.config(command=None)
                 Canvas1.unbind_all("<MouseWheel>") 
@@ -423,8 +424,8 @@ class registrar1():
         entry_tipo.current(0)
 
         on_course_selected()
-
-
+        if valores[5]!="Maestro":
+            CambioTipoCuenta(True)
 
         if valores[0]==True:
             label_titulo.config(text="Editar Cuenta")
