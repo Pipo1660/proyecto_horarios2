@@ -424,7 +424,7 @@ class registrar1():
         entry_tipo.current(0)
 
         on_course_selected()
-        if valores[5]!="Maestro":
+        if valores[0] is True and valores[5]!="Maestro":
             CambioTipoCuenta(True)
 
         if valores[0]==True:
