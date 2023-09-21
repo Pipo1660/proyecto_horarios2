@@ -178,7 +178,7 @@ class menu1:
         etiqueta_derecha.place(relx = 1.0, rely = 0.5, anchor ='e')
 
         etiqueta_izquierda = Label(BG2, text="", bg=BG2color,font=("Helvetica", 16))
-        etiqueta_izquierda.place(relx = 0.1, rely = 0.5, anchor ='w')
+        etiqueta_izquierda.place(relx = 0.0, rely = 0.5, anchor ='w')
 
         if tipoCuenta==1:
             etiqueta_izquierda.config(text="Profesor")

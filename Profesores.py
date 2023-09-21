@@ -868,7 +868,7 @@ def opciones_docentes(option):
         cursor = cnx.cursor()
         cursor.execute(insert_query, dataagregar)
         cnx.commit()  # Importante: Confirmar los cambios en la base de datos
-        messagebox.showinfo("Aviso", "Materia agregada correctamente") 
+        messagebox.showinfo("Aviso", "Materia agregada correctamente\nSe recomienda reiniciar el programa para poder ver los cambios") 
         tree_materias.insert(parent='', index='end', values=(obtenernombre,cursos_seleccionados_str,obtenergrupo,obtenerespecialidad))
         materia_nombre.delete(0, tk.END)
         entry_especialidad.delete(0, tk.END)
