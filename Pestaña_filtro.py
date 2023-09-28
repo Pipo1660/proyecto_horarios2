@@ -371,10 +371,11 @@ class Pestaña_filtro():
     def conectar_a_mysql(self):
         try:
                 self.cnx = mysql.connector.connect(
-                    host='localhost',
-                    user='root',
-                    password='',
-                    database='tecnica_2023'
+                    host='eestn1.com.ar',
+                    user='tecnica1',
+                    password='z%51#q57A7BR',
+                    database='tec_boletines2023',
+                    port=3306
                 )
                 self.cursor = self.cnx.cursor()
         except Exception as e:

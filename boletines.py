@@ -108,7 +108,6 @@ class boletines1():
     def __init__(self, tk, sql, cursor):
         #Auto Crear Base de datos
         #cursor.execute("create database if not exists tecnica_2023")
-        sql.database = "tecnica_2023"
 
         #Tabla de maestrias para materias(por default, 1 = Programacion, 2 = Informatica, 3 = Maestro mayor)
         #removido ya que no le veo la utilidad por que los cursos de cada materia por ahora definidos manualmente
@@ -159,7 +158,7 @@ class boletines1():
             materia = materia[0].replace(" ","_")
             print(materia)
             cursor.execute(f"""CREATE TABLE if not exists boletines__{materia} (
-                        ID int(11) PRIMARY KEY,
+                        ID int(11),
                         CURSO varchar(10) NOT NULL,
                         NOTA1 DOUBLE(4,2),
                         NOTA2 DOUBLE(4,2),
@@ -170,7 +169,7 @@ class boletines1():
                         NOTA_FINAL DOUBLE(4,2),
                         FOREIGN KEY (ID) REFERENCES alumnos(ID) ON DELETE CASCADE,
                         FOREIGN KEY (CURSO) REFERENCES cursos(CURSO)
-                        );""")
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;""")
         print("----------------")
         
         #crear maestrias default
@@ -870,15 +869,14 @@ if __name__ == "__main__":
     tk.title("pyNotas")
     tk.geometry("1200x680")
     #tk.resizable(0,0)
-    with open('database.txt', 'r') as archivo:
-        database_var = archivo.read()
     #conectar con mysql
     try:
-        sql = mysql.connector.connect(user='root',#usuario registrado en el mysql
-                                    password='', #contraseña del usuario
-                                    host='127.0.0.1', #IP del server mysql (en este caso localhost)
-                                    autocommit=True, #automaticamente aplicar cambios
-                                    database=database_var #Base de datos que se usara
+        sql = mysql.connector.connect(
+            host='eestn1.com.ar',
+            user='tecnica1',
+            password='z%51#q57A7BR',
+            database='tec_boletines2023',
+            port=3306
                                     )
         cursor = sql.cursor()
     except:

@@ -335,11 +335,12 @@ if __name__=="__main__":
     with open('database.txt', 'r') as archivo:
         database_var = archivo.read()
     try:
-        sql = mysql.connector.connect(user='root',#usuario registrado en el mysql
-                                    password='', #contraseña del usuario
-                                    host='127.0.0.1', #IP del server mysql (en este caso localhost)
-                                    autocommit=True, #automaticamente aplicar cambios
-                                    database=database_var #Base de datos que se usara
+        sql = mysql.connector.connect(
+            host='eestn1.com.ar',
+            user='tecnica1',
+            password='z%51#q57A7BR',
+            database='tec_boletines2023',
+            port=3306
                                     )
         cursor = sql.cursor()
     except:

@@ -20,10 +20,11 @@ class PDF(FPDF):
         try:
             # Conexión a la base de datos
             self.cnx = mysql.connector.connect(
-                host='localhost',
-                user='root',
-                password='',
-                database='tecnica_2023'
+            host='eestn1.com.ar',
+            user='tecnica1',
+            password='z%51#q57A7BR',
+            database='tec_boletines2023',
+            port=3306
             )
             self.cursor = self.cnx.cursor()
             self.cursor.execute("""SELECT * FROM horarios WHERE Numero_aula=%s AND tipo_de_aula=%s ORDER BY Horario_e""",
@@ -137,10 +138,11 @@ class PDF_filtro(FPDF):
         try:
             # Conexión a la base de datos
             self.cnx = mysql.connector.connect(
-                host='localhost',
-                user='root',
-                password='',
-                database='tecnica_2023'
+                host='eestn1.com.ar',
+                user='tecnica1',
+                password='z%51#q57A7BR',
+                database='tec_boletines2023',
+                port=3306
             )
             self.cursor = self.cnx.cursor()
             self.cursor.execute(self.query)

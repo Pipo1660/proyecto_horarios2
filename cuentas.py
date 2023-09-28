@@ -1,9 +1,3 @@
-#pip install mysql-connector-python
-#pip install tkcalendar
-
-#CREATE USER 'pipo'@'localhost' IDENTIFIED BY '1243';
-#GRANT ALL PRIVILEGES ON *.* TO 'pipo'@'localhost'; 
-
 try:
     from tkinter import *
     from tkinter import ttk,messagebox
@@ -330,12 +324,14 @@ class cuentas1:
 if __name__=="__main__":
     #conectar con mysql
     try:
-        sql = mysql.connector.connect(user='root',#usuario registrado en el mysql
-                                    password='', #contraseña del usuario
-                                    host='127.0.0.1', #IP del server mysql (en este caso localhost)
-                                    autocommit=True #automaticamente aplicar cambios
-                                    #database='pynotas' #Base de datos que se usara
-                                    )
+        sql = mysql.connector.connect(
+            host='eestn1.com.ar',
+            user='tecnica1',
+            password='z%51#q57A7BR',
+            database='tec_boletines2023',
+            port=3306,
+            autocommit=True 
+            )
         cursor = sql.cursor()
     except:
         print("No se pudo conectar con la base de datos, asegurece que XAMPP este abierto junto a MYSQL y Apache y que se haya ingresado un usuario valido.")
@@ -358,7 +354,7 @@ if __name__=="__main__":
 
     #Auto Crear Base de datos
     #cursor.execute("create database if not exists tecnica_2023")
-    sql.database = "tecnica_2023"
+    sql.database = "tec_boletines2023"
 
     for columna in range(10):
         tk.grid_columnconfigure(columna,weight=1)

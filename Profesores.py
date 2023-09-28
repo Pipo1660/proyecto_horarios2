@@ -6,7 +6,6 @@ from tkinter import ttk
 from tkcalendar import DateEntry
 from PIL import Image, ImageTk
 from datetime import datetime, timedelta
-import Parte_principal
 import re
 #Hecho por Javier Correa
 def eliminar(ventana):
@@ -981,10 +980,11 @@ def conectar_base_de_datos():
     global cursor
     global cnx
     cnx = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='',
-    database='tecnica_2023'
+            host='eestn1.com.ar',
+            user='tecnica1',
+            password='z%51#q57A7BR',
+            database='tec_boletines2023',
+            port=3306
     )
     # Crear un cursor para ejecutar consultas
     cursor = cnx.cursor()

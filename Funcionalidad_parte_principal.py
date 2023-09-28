@@ -74,11 +74,12 @@ class menu_horarios():
         
     def conectar_base_de_datos(self):
         self.cnx = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='',
-            database='tecnica_2023'
-        )
+            host='eestn1.com.ar',
+            user='tecnica1',
+            password='z%51#q57A7BR',
+            database='tec_boletines2023',
+            port=3306
+            )
         # Crear un cursor para ejecutar consultas
         self.cursor = self.cnx.cursor()
     def cerrar_base_de_datos(self):
@@ -91,7 +92,7 @@ class menu_horarios():
         botones_frame = ttk.LabelFrame(self.aula_ver_horarios, text="Horarios")
         botones_frame.pack(padx=10, pady=10)
         self.conectar_base_de_datos()
-        self.cursor.execute('SELECT Tipo_de_aula, Numero FROM Aulas WHERE Tipo_de_aula = %s ORDER BY Numero ', (tipo_aula,))
+        self.cursor.execute('SELECT Tipo_de_aula, Numero FROM aulas WHERE Tipo_de_aula = %s ORDER BY Numero ', (tipo_aula,))
         filas = self.cursor.fetchall()
         if filas:
             for i, fila in enumerate(filas):
@@ -462,10 +463,11 @@ class añadir_horario():
     def conectar_a_mysql(self):
         try:
                 self.cnx = mysql.connector.connect(
-                    host='localhost',
-                    user='root',
-                    password='',
-                    database='tecnica_2023'
+                host='eestn1.com.ar',
+                user='tecnica1',
+                password='z%51#q57A7BR',
+                database='tec_boletines2023',
+                port=3306
                 )
                 self.cursor = self.cnx.cursor()
         except Exception as e:
